@@ -1,9 +1,31 @@
 
+import 'package:discern/widgets/font_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/Material.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+Widget failAlert(BuildContext context) {
+  return AlertDialog(
+    title: poppinsText(
+      'Not logged in?', 
+      20, 
+      FontWeight.w600
+    ),
+    content: poppinsText(
+      'You can do so in the sidebar.', 
+      15, 
+      FontWeight.normal
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.pop(context, 'OK'),
+        child: poppinsText('OK', 15, FontWeight.normal)
+      )
+    ],
+  );
+}
 
 class AuthProvider with ChangeNotifier {
   final googleSignIn = GoogleSignIn();

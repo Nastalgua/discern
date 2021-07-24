@@ -12,6 +12,7 @@ class Camera extends StatefulWidget {
 
   @override
   _CameraState createState() => _CameraState();
+
 }
 
 class _CameraState extends State<Camera> {

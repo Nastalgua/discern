@@ -20,7 +20,7 @@ class ResultItem extends StatelessWidget {
         child: InkWell(
           onTap: () {
             Navigator.of(context).pushNamed(
-              ProductDetailsRoute, 
+              ProductDetailsViewRoute, 
               arguments: itemType
             );
           },

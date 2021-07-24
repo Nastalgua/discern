@@ -1,6 +1,6 @@
+import 'package:discern/widgets/font_text.dart';
 import 'package:discern/widgets/results/result_item.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Results extends StatefulWidget {
   final results;
@@ -34,16 +34,7 @@ class _ResultsState extends State<Results> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Notable Item(s)',
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF454545)
-                )
-              ),
-            ),
+            montserratText('Notable Item(s)', 25.0, FontWeight.w600, color: Color(0xFF454545)),
             Container(
               padding: EdgeInsets.only(top: 10),
               height: MediaQuery.of(context).size.height * 0.3,

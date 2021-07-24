@@ -1,3 +1,4 @@
+import 'package:discern/constants/route_constants.dart';
 import 'package:discern/providers/auth_provider.dart';
 import 'package:discern/widgets/font_text.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   Widget _buildUserInfo(BuildContext context) {
     return Consumer(
@@ -108,13 +109,24 @@ class _HomeState extends State<Home> {
                 context, 
                 'assets/icons/hamburger-menu.svg', 
                 20.0, 
-                () => _scaffoldKey.currentState!.openDrawer()
+                () => scaffoldKey.currentState!.openDrawer()
               ),
               _buildIcon(
                 context, 
                 'assets/icons/inventory.svg', 
                 48.0, 
-                () {}
+                () {
+                  if (!AuthProvider.isLoggedIn()) {
+                    showDialog(
+                      context: context, 
+                      builder: (BuildContext context) => failAlert(context)
+                    );
+
+                    return;
+                  }
+                  
+                  Navigator.of(context).pushNamed(InventoryViewRoute);
+                }
               ),
             ],
           ),
@@ -126,7 +138,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       drawer: _buildDrawer(context),
       body: Stack(
         children: [
