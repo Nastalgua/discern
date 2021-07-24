@@ -40,7 +40,8 @@ dependencies:
   simple_shadow: ^0.2.0
 
   # ml
-  tflite: "^1.0.4"
+  image: ^3.0.2
+  tflite: ^1.1.2
 
   # maps
   google_maps_flutter: ^2.0.6
@@ -82,14 +83,36 @@ flutter:
     - assets/icons/hamburger-menu.svg
     - assets/icons/inventory.svg
     - assets/icons/take-photo.svg
-    - assets/icons/items/Battery.svg
     
     - assets/icons/drawer/github.svg
     - assets/icons/drawer/user.svg
 
-    - assets/information/Battery.md
+    - assets/icons/items/appliances.svg
+    - assets/icons/items/battery.svg
+    - assets/icons/items/cleaning-product.svg
+    - assets/icons/items/computer.svg
+    - assets/icons/items/drugs.svg
+    - assets/icons/items/lightbulb.svg
+    - assets/icons/items/medical-waste.svg
+    - assets/icons/items/smartphone.svg
 
-    - assets/imgs/Battery.jpg
+    - assets/information/appliances.md
+    - assets/information/battery.md
+    - assets/information/cleaning-product.md
+    - assets/information/computer.md
+    - assets/information/drugs.md
+    - assets/information/lightbulb.md
+    - assets/information/medical-waste.md
+    - assets/information/smartphone.md
+
+    - assets/imgs/appliances.jpg
+    - assets/imgs/battery.jpg
+    - assets/imgs/cleaning-product.jpg
+    - assets/imgs/computer.jpg
+    - assets/imgs/drugs.jpg
+    - assets/imgs/lightbulb.jpg
+    - assets/imgs/medical-waste.jpg
+    - assets/imgs/smartphone.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

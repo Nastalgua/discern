@@ -1,6 +1,6 @@
 import 'package:discern/constants/route_constants.dart';
 import 'package:discern/providers/auth_provider.dart';
-import 'package:discern/widgets/font_text.dart';
+import 'package:discern/helpers/font_text.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 

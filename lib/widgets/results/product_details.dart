@@ -106,7 +106,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               this._buildImages(),
               Information(itemType: widget.itemType),
               this._buildHeader('Disposal Locations'),
-              MiniMap()
+              MiniMap(itemType: widget.itemType)
             ],
           ),
         ),

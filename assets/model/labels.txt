@@ -1,8 +1,8 @@
-Cleaning Products
-Battery
-Smartphone
-Computers
-Fluorescent Tubes & CFLs
-Appliances
-Medical Waste
-Drugs
+cleaning-product
+battery
+smartphone
+computer
+lightbulb
+appliances
+medical-waste
+drugs

@@ -1,4 +1,4 @@
-import 'package:discern/widgets/font_text.dart';
+import 'package:discern/helpers/font_text.dart';
 import 'package:discern/widgets/results/result_item.dart';
 import 'package:flutter/material.dart';
 
@@ -32,22 +32,13 @@ class _ResultsState extends State<Results> {
       child: Padding(
         padding: const EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            montserratText('Notable Item(s)', 25.0, FontWeight.w600, color: Color(0xFF454545)),
+            montserratText('Notable Item', 25.0, FontWeight.w600, color: Color(0xFF454545)),
             Container(
               padding: EdgeInsets.only(top: 10),
               height: MediaQuery.of(context).size.height * 0.3,
-              child: Scrollbar(
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(
-                    this._results.length, (index) {
-                      return ResultItem(itemType: this._results[index]);
-                    },
-                  ),
-                ),
-              )
+              child: ResultItem(itemType: this._results[0])
             )
           ],
         ),

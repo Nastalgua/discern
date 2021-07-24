@@ -1,5 +1,5 @@
 
-import 'package:discern/widgets/font_text.dart';
+import 'package:discern/helpers/font_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/Material.dart';
 

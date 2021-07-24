@@ -11,7 +11,9 @@ import 'package:google_place/google_place.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MiniMap extends StatefulWidget {
-  MiniMap({Key? key}) : super(key: key);
+  final String itemType;
+
+  MiniMap({Key? key, required this.itemType}) : super(key: key);
 
   @override
   _MiniMapState createState() => _MiniMapState();
@@ -27,6 +29,38 @@ class _MiniMapState extends State<MiniMap> {
   List<Marker> _markers = [];
 
   bool _searched = false;
+
+  String keyword = "";
+
+  @override
+  void initState() {
+    super.initState();
+
+    switch (widget.itemType) {
+      case 'cleaning-product':
+        this.keyword = 'special waste disposal';
+        break;
+      case 'battery':
+        this.keyword = 'battery disposal';
+        break;
+      case 'smartphone':
+      case 'computer':
+        this.keyword = 'electronic disposal';
+        break;
+      case 'appliances':
+        this.keyword = 'appliances disposal';
+        break;
+      case 'drugs':
+        this.keyword = 'drug drop off sites';
+        break;
+      case 'medical-waste':
+        this.keyword = 'hospital';
+        break;
+      case 'lightbulb':
+        this.keyword = 'flurescent light bulbs disposal';
+        break;
+    }
+  }
 
   void _onMapCreated(GoogleMapController controller) {
     this._controller = controller;
@@ -60,7 +94,7 @@ class _MiniMapState extends State<MiniMap> {
     final baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     final apiKey = dotenv.env['GOOGLE_PLACES_API_KEY'];
 
-    String url = '$baseURL?key=$apiKey&location=${this._userLocation.lat},${this._userLocation.lng}&radius=10000&keyword=${'hospital'}';
+    String url = '$baseURL?key=$apiKey&location=${this._userLocation.lat},${this._userLocation.lng}&radius=10000&keyword=${this.keyword}';
 
     final response = await http.get(Uri.parse(url));
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:discern/widgets/font_text.dart';
+import 'package:discern/helpers/font_text.dart';
 import 'package:discern/models/inventory_item.dart';
 import 'package:discern/widgets/inventory/item.dart';
 import 'package:discern/providers/auth_provider.dart';
@@ -61,7 +61,7 @@ class _InventoryState extends State<Inventory> {
               )
             ),
             Positioned(
-              top: -15,
+
               right: 0,
               child: RawMaterialButton(
                 onPressed: () {

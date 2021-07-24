@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:discern/helpers/inventory_management.dart';
+import 'package:discern/helpers/string_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
@@ -19,9 +20,6 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  final userRef = FirebaseFirestore.instance
-      .collection('users')
-      .doc(AuthProvider.getUser().uid);
 
   @override
   void initState() { 
@@ -66,7 +64,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   PreferredSizeWidget _appBar() {
     return AppBar(
       title: Text(
-        widget.itemType,
+        betterString(widget.itemType),
         style: GoogleFonts.montserrat(
           textStyle: TextStyle(
             fontSize: 26,
@@ -122,9 +120,11 @@ class _ProductDetailsState extends State<ProductDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               this._buildImages(),
+              Divider(height: 25),
               Information(itemType: widget.itemType),
+              Divider(height: 25),
               this._buildHeader('Disposal Locations'),
-              MiniMap()
+              MiniMap(itemType: widget.itemType)
             ],
           ),
         ),

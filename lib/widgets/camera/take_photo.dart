@@ -1,3 +1,4 @@
+import 'package:discern/helpers/font_text.dart';
 import 'package:discern/widgets/results/results.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
@@ -47,7 +48,7 @@ class _TakePhotoState extends State<TakePhoto> with SingleTickerProviderStateMix
   Future<List<dynamic>?> _applyModel(String imagePath) async {
     return await Tflite.runModelOnImage(
       path: imagePath,
-      numResults: 2,
+      numResults: 8,
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5
@@ -58,6 +59,34 @@ class _TakePhotoState extends State<TakePhoto> with SingleTickerProviderStateMix
     try {      
       final image = await widget.cameraController.takePicture();
       final res = await this._applyModel(image.path);
+
+      if (res!.isEmpty) {
+        showDialog(
+          context: context, 
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: poppinsText(
+                'Bad image recieved?', 
+                20, 
+                FontWeight.w600
+              ),
+              content: poppinsText(
+                'Try taking the photo again.', 
+                15, 
+                FontWeight.normal
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context, 'OK'),
+                  child: poppinsText('OK', 15, FontWeight.normal)
+                )
+              ],
+            );
+          }
+        );
+
+        return;
+      }
 
       showModalBottomSheet(
         shape: RoundedRectangleBorder(

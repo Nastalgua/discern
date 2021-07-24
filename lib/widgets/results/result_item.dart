@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:discern/constants/route_constants.dart';
+import 'package:discern/helpers/string_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,7 @@ class ResultItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double length = 174.0;
+    final double length = MediaQuery.of(context).size.width * 0.9;
 
     return SimpleShadow(
       child: Padding(
@@ -38,8 +39,8 @@ class ResultItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: length * 0.5,
-                    height: length * 0.5,
+                    width: length * 0.4,
+                    height: length * 0.4,
                     child: FutureBuilder(
                       future: File('assets/icons/items/$itemType.svg').exists(),
                       builder: (BuildContext context, snapshot) {
@@ -55,7 +56,7 @@ class ResultItem extends StatelessWidget {
                     // alignment: Alignment.center,
                     width: length,
                     child: Text(
-                      this.itemType,
+                      betterString(this.itemType),
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
