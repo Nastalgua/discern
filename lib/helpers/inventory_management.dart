@@ -10,11 +10,11 @@ Future<void> updateInventory(String itemType, int changeAmount) async {
   final snapshot = await userRef.get();
   
   List<dynamic> inventory = (snapshot.data()!)['inventory'];
-  final items = inventory.map(
+  List<InventoryItem> items = inventory.map(
     (e) => InventoryItem.fromJSON(e)
   ).toList();
 
-  int count = 0;
+  int count = -1;
   for (final item in items) {
     if (item.name == itemType) {
       count = item.count;
@@ -22,22 +22,24 @@ Future<void> updateInventory(String itemType, int changeAmount) async {
     }
   }
 
+  if (count == -1) {
+    count = 1;
+  }
+
   InventoryItem item = new InventoryItem(name: itemType, count: count);
 
   bool containsItem = false;
-  items.forEach((element) {
-    if (element.name == item.name) {
+  items.forEach((e) {
+    if (e.name == item.name) {
       containsItem = true;
+      e.count = e.count + changeAmount;
     }
   });
 
+  items = items.where((element) => element.count > 0).toList();
+
   var itemsJSON = items.map(
-    (e) {
-      if (item.name != e.name) return e.toJSON();
-      
-      e.count = e.count + changeAmount;
-      return e.toJSON();
-    }
+    (e) => e.toJSON()
   ).toList();
 
   if (!containsItem) itemsJSON.add(item.toJSON());
