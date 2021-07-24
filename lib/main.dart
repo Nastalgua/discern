@@ -1,3 +1,5 @@
+import 'package:discern/constants/route_constants.dart';
+import 'package:discern/router/route_generator.dart';
 import "package:flutter/services.dart";
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
@@ -5,6 +7,7 @@ import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:discern/ui/home.dart';
+import 'package:tflite/tflite.dart';
 
 List<CameraDescription> cameras = [];
 
@@ -16,6 +19,11 @@ Future<void> main() async {
   } on CameraException catch (e) {
     print('Error: $e.code\nError Message: $e.message');
   }
+
+  await Tflite.loadModel(
+    labels: 'assets/model/labels.txt',
+    model: 'assets/model/model.tflite'
+  );
 
   Firebase.initializeApp();
 
@@ -32,10 +40,8 @@ class MyApp extends StatelessWidget {
     ]);
     return MaterialApp(
       title: 'Discern',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Home(cameras: cameras)
+      initialRoute: HomeViewRoute,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

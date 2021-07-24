@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
-import 'package:discern/widgets/camera.dart';
+import 'package:discern/widgets/camera/camera.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Home extends StatefulWidget {
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
       body: Stack(
         children: [
           Camera(cameras: widget.cameras),
-          Camera.isCameraLoaded() ? _buildUI(context) : Container()
+          _buildUI(context)
         ],
       ),
     );
