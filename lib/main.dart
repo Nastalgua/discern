@@ -6,7 +6,7 @@ import 'package:camera/camera.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
-import 'package:discern/ui/home.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tflite/tflite.dart';
 
 List<CameraDescription> cameras = [];
@@ -24,6 +24,8 @@ Future<void> main() async {
     labels: 'assets/model/labels.txt',
     model: 'assets/model/model.tflite'
   );
+
+  await dotenv.load(fileName: "assets/.env");
 
   Firebase.initializeApp();
 
