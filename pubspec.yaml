@@ -23,7 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  
+  provider: ^5.0.0
   flutter_dotenv: ^5.0.0
 
   # camera
@@ -43,9 +44,7 @@ dependencies:
 
   # maps
   google_maps_flutter: ^2.0.6
-  # google_maps_webservice: ^0.0.19
   google_place: ^0.4.0
-  # flutter_google_places: ^0.3.0
   location: ^4.3.0
 
   # Firebase
@@ -76,12 +75,18 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/.env
+
     - assets/model/labels.txt
     - assets/model/model.tflite
+
     - assets/icons/hamburger-menu.svg
     - assets/icons/inventory.svg
     - assets/icons/take-photo.svg
     - assets/icons/items/Battery.svg
+    
+    - assets/icons/drawer/github.svg
+    - assets/icons/drawer/user.svg
+
     - assets/information/Battery.md
 
     - assets/imgs/Battery.jpg

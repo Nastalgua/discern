@@ -1,4 +1,5 @@
 import 'package:discern/constants/route_constants.dart';
+import 'package:discern/providers/auth_provider.dart';
 import 'package:discern/router/route_generator.dart';
 import "package:flutter/services.dart";
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:provider/provider.dart';
 import 'package:tflite/tflite.dart';
 
 List<CameraDescription> cameras = [];
@@ -27,9 +29,18 @@ Future<void> main() async {
 
   await dotenv.load(fileName: "assets/.env");
 
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
 
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthProvider()
+        )
+      ],
+      child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -40,6 +51,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    
     return MaterialApp(
       title: 'Discern',
       initialRoute: HomeViewRoute,

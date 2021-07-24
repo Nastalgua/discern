@@ -1,8 +1,11 @@
+import 'package:discern/providers/auth_provider.dart';
+import 'package:discern/widgets/font_text.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
 import 'package:discern/widgets/camera/camera.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -19,17 +22,62 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
+  Widget _buildUserInfo(BuildContext context) {
+    return Consumer(
+      builder: (context, AuthProvider auth, child) {
+        return AuthProvider.isLoggedIn() ?
+        Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundImage: NetworkImage(AuthProvider.getUser().photoURL!),
+                ),
+              ),
+              poppinsText(AuthProvider.getUser().displayName!, 18, FontWeight.w600),
+              poppinsText(AuthProvider.getUser().email!, 11, FontWeight.w300),
+              Divider(height: 30)
+            ],
+          ),
+        )
+        : ListTile(
+          leading: SvgPicture.asset('assets/icons/drawer/user.svg', width: 25, height: 25),
+          title: poppinsText('Sign In', 14, FontWeight.w400),
+          onTap: () async {
+            await auth.googleLogin();
+          },
+        );
+      }
+    );
+  }
+
   Widget _buildDrawer(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.65,
       child: Drawer(
         child: ListView(
           children: [
+            this._buildUserInfo(context),
             ListTile(
-              title: Text('GitHub'),
+              leading: SvgPicture.asset('assets/icons/drawer/github.svg', width: 25, height: 25),
+              title: poppinsText('GitHub', 14, FontWeight.w400),
             ),
-            ListTile(
-              title: Text('Sign Out'),
+            Consumer(
+              builder: (context, AuthProvider auth, child) {
+                return AuthProvider.isLoggedIn() ? 
+                ListTile(
+                  leading: Icon(Icons.logout, size: 25, color: Colors.black),
+                  title: poppinsText('Sign Out', 14, FontWeight.w400),
+                  onTap: () async {
+                    await auth.googleLogout();
+                  },
+                )
+                : Container();
+              }
             )
           ],
         ),
