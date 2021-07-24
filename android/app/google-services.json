@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "521571749730",
+    "project_id": "discern-be1a2",
+    "storage_bucket": "discern-be1a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521571749730:android:f6cc88d0bc98fdeb4fa63b",
+        "android_client_info": {
+          "package_name": "com.nastalgua.discern"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521571749730-k4n0sbk2so9ofksdagr4a428bn1bd75b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nastalgua.discern",
+            "certificate_hash": "75348d4676f51c389a587fc395511ae13ef09b45"
+          }
+        },
+        {
+          "client_id": "521571749730-5er67b8aobhl0oofnfl8st89gnl7u8dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6xUZ9ZYWsuOgwRsA5DwSeR6t3ERmJZYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521571749730-5er67b8aobhl0oofnfl8st89gnl7u8dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
