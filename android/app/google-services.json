@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:521571749730:android:f6cc88d0bc98fdeb4fa63b",
+        "mobilesdk_app_id": "1:521571749730:android:9b188d8ac5ac1bc94fa63b",
         "android_client_info": {
           "package_name": "com.nastalgua.discern"
         }
       },
       "oauth_client": [
         {
-          "client_id": "521571749730-k4n0sbk2so9ofksdagr4a428bn1bd75b.apps.googleusercontent.com",
+          "client_id": "521571749730-rb8asmvb2otun9o4u6b583csnh65f040.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nastalgua.discern",
