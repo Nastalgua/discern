@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+
 import 'package:discern/constants/route_constants.dart';
 import 'package:discern/providers/auth_provider.dart';
 import 'package:discern/helpers/font_text.dart';
-import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
-
 import 'package:discern/widgets/camera/camera.dart';
+
+import 'package:camera/camera.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -66,6 +68,10 @@ class _HomeState extends State<Home> {
             ListTile(
               leading: SvgPicture.asset('assets/icons/drawer/github.svg', width: 25, height: 25),
               title: poppinsText('GitHub', 14, FontWeight.w400),
+              onTap: () async {
+                String url = "https://github.com/Nastalgua/discern";
+                await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+              }
             ),
             Consumer(
               builder: (context, AuthProvider auth, child) {

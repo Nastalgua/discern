@@ -1,5 +1,5 @@
 name: discern
-description: A new Flutter project.
+description: Identify and learn how to dispose of items.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -26,6 +26,7 @@ dependencies:
   
   provider: ^5.0.0
   flutter_dotenv: ^5.0.0
+  url_launcher: ^6.0.9
 
   # camera
   camera: ^0.8.1+4
