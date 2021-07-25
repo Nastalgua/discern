@@ -51,6 +51,15 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    precacheImage(AssetImage('assets/imgs/battery.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/appliances.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/cleaning-product.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/computer.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/drugs.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/light-bulb.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/medical-waste.jpg'), context);
+    precacheImage(AssetImage('assets/imgs/smartphone.jpg'), context);
     
     return MaterialApp(
       title: 'Discern',

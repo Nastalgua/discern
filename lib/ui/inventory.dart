@@ -80,9 +80,7 @@ class _InventoryState extends State<Inventory> {
             )
           ]
         ),
-        separatorBuilder: (context, index) => Divider(
-          height: 25,
-        ),
+        separatorBuilder: (context, index) => Divider(),
         itemCount: this._inventory.length,
       ),
     );

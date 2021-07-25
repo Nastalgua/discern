@@ -2,7 +2,7 @@ cleaning-product
 battery
 smartphone
 computer
-lightbulb
+light-bulb
 appliances
 medical-waste
 drugs
