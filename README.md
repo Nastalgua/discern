@@ -9,6 +9,15 @@ Then, it provides information on how to dispose of the item, and provides local 
 
 The app allows the user to keep track of the items that need special disposal. 
 
+The model currently can recognize:
+* Appliances
+* Batteries
+* Cleaning Products
+* Drugs
+* Electronics
+* Light Bulbs
+* Medical Waste
+
 ## Download
 [Download Here](https://github.com/Nastalgua/discern/releases/tag/1.0.0)
 
