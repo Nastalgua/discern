@@ -90,29 +90,26 @@ flutter:
     - assets/icons/items/appliances.svg
     - assets/icons/items/battery.svg
     - assets/icons/items/cleaning-product.svg
-    - assets/icons/items/computer.svg
     - assets/icons/items/drugs.svg
     - assets/icons/items/light-bulb.svg
     - assets/icons/items/medical-waste.svg
-    - assets/icons/items/smartphone.svg
+    - assets/icons/items/electronic.svg
 
     - assets/information/appliances.md
     - assets/information/battery.md
     - assets/information/cleaning-product.md
-    - assets/information/computer.md
     - assets/information/drugs.md
     - assets/information/light-bulb.md
     - assets/information/medical-waste.md
-    - assets/information/smartphone.md
+    - assets/information/electronic.md
 
     - assets/imgs/appliances.jpg
     - assets/imgs/battery.jpg
     - assets/imgs/cleaning-product.jpg
-    - assets/imgs/computer.jpg
     - assets/imgs/drugs.jpg
     - assets/imgs/light-bulb.jpg
     - assets/imgs/medical-waste.jpg
-    - assets/imgs/smartphone.jpg
+    - assets/imgs/electronic.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

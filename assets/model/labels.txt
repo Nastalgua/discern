@@ -1,8 +1,7 @@
 cleaning-product
 battery
-smartphone
-computer
 light-bulb
 appliances
 medical-waste
 drugs
+electronic
