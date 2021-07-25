@@ -1,6 +1,16 @@
 # discern
 
-A new Flutter project.
+Quickly identify and learn how to dispose of harmful household items.
+
+## How it works
+Using a custom machine learning model, the app will attempt to figure out what what harmful household item it most closely resembles. 
+
+Then, it provides information on how to dispose of the item, and provides local disposal sites.
+
+The app allows the user to keep track of the items that need special disposal. 
+
+## Download
+[Download Here](https://github.com/Nastalgua/discern/releases/tag/1.0.0)
 
 ## Getting Started
 
